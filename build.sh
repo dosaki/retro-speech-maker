@@ -14,6 +14,10 @@ ARG="$1"
 if [[ "${ARG}" == "--dev" ]];then
   IS_DEV_MODE="TRUE"
 fi
+if [[ "${ARG}" == "--npm-publish" ]];then
+  PUBLISH_TO_NPM="TRUE"
+fi
+
 
 rm -r ./app
 rm -r ./dist
@@ -25,3 +29,11 @@ else
 fi
 
 cp -r ./static/* ./app/
+
+if [[ "${PUBLISH_TO_NPM}" == "TRUE" ]]; then
+    mkdir publish
+    cd publish
+    cp "${CURRENT_DIR}/package.json" .
+    cp "${CURRENT_DIR}/dist/retro-speech.module.min.js" .
+    npm publish
+fi

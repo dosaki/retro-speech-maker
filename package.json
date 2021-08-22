@@ -1,8 +1,9 @@
 {
   "name": "retro-speech-maker",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Speech-like sounds to go with your text in your retro game",
-  "main": "main.js",
+  "pkgRoot": "dist",
+  "main": "retro-speech.module.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,10 +14,8 @@
   ],
   "author": "Tiago 'Dosaki' Correia",
   "license": "ISC",
-  "dependencies": {
-    "webpack": "^5.51.1"
-  },
   "devDependencies": {
+    "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
   },
   "repository": {
