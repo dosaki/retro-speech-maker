@@ -21,6 +21,7 @@ fi
 
 rm -r ./app
 rm -r ./dist
+rm -r ./publish
 
 if [[ "${IS_DEV_MODE}" == "TRUE" ]]; then
     ./node_modules/webpack/bin/webpack.js --mode development
@@ -31,9 +32,10 @@ fi
 cp -r ./static/* ./app/
 
 if [[ "${PUBLISH_TO_NPM}" == "TRUE" ]]; then
-    mkdir publish
+    mkdir -p publish
     cd publish
     cp "${CURRENT_DIR}/package.json" .
+    cp "${CURRENT_DIR}/README.md" .
     cp "${CURRENT_DIR}/dist/retro-speech.module.min.js" .
     npm publish
 fi

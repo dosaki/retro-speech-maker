@@ -11,11 +11,14 @@ RetroSpeech.speak(length, gender, wave);
 
 ## As a module
 
-```javascript
-const { RetroSpeech } = require('./retro-speech.module.min');
-RetroSpeech.speak(10, "female", "sawtooth");
+```shell
+npm install retro-speech-maker
 ```
 
+```javascript
+const { RetroSpeech } = require('retro-speech-maker');
+RetroSpeech.speak(10, "female", "sawtooth");
+```
 
 ## As a script library
 
