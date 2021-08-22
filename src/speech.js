@@ -1,4 +1,4 @@
-import { play, toFile } from './utils/audio-utils';
+import { play } from './utils/audio-utils';
 import { int } from './utils/random-utils';
 
 const genderFrequencyMultiplier = {
