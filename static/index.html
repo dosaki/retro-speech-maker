@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Speech Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            transition: all 5s ease;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            position: fixed;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: center;
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .full-height {
+            height: 100%;
+        }
+
+        .row {
+            flex-direction: row;
+        }
+        .gradient {
+            background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+        }
+        .box {
+            background: #ffffff90;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        textarea {
+            flex-grow: 1;
+            height: 100px;
+        }
+        .vertical-spacer {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .horizontal-spacer {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body style="background: rgb(207, 207, 143)">
+    <div class="flex column gradient full-height">
+        <div class="flex row">
+            <div class="box">
+                <div>
+                    <h1>Retro Speech Generator</h1>
+                    <div class="flex row vertical-spacer">
+                        <textarea placeholder="Type some text here" text>Hello there</textarea>
+                        <div class="flex column horizontal-spacer">
+                            <select gender_select>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                            <select wave_select>
+                                <option value="sawtooth">Sawtooth</option>
+                                <option value="sine">Sine</option>
+                                <option value="square">Square</option>
+                                <option value="triangle">Triangle</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex column vertical-spacer">
+                    <button speak_btn>Generate</button>
+                    <div interactables class="vertical-spacer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
