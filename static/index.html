@@ -59,6 +59,30 @@
             margin-left: 8px;
             margin-right: 8px;
         }
+        code {
+            display: block;
+            padding: 8px;
+            margin: 4px;
+            color: #fffff5;
+            background: #212326;
+            white-space: pre;
+        }
+        keyword {
+            font-weight: bold;
+            color: #5e77ff;
+        }
+        constvar {
+            color: #5e77ff;
+        }
+        string {
+            color: #e6960b;
+        }
+        method {
+            color: #ffeb87;
+        }
+        number {
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -89,6 +113,12 @@
                     <div interactables class="vertical-spacer">
 
                     </div>
+                </div>
+                <div>
+                    Available as a library on <a href="https://github.com/dosaki/retro-speech-maker">github</a> or install it with <a href="https://www.npmjs.com/package/retro-speech-maker">npm</a>
+                    <code>npm install retro-speech-maker</code>
+                    <code><keyword>const</keyword> { <constvar>RetroSpeech</constvar> } = <method>require</method>(<string>'retro-speech-maker'</string>);
+<constvar>RetroSpeech</constvar>.<method>speak</method>(<number>10</number>, <string>"female"</string>, <string>"sawtooth"</string>);</code>
                 </div>
             </div>
         </div>
