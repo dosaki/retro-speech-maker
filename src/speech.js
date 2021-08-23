@@ -23,7 +23,6 @@ const resolveType = (text) => {
 export const speak = (length, gender, wave, type, destination) => {
     const sentenceProperties = sentenceTypes[type.toLowerCase()] || senteceTypes["normal"];
     const sequence = [...sentenceProperties.start.map(f=>f*int(0.8, 1.3)), ...new Array(Math.max(length - sentenceProperties.ending.length, 0)).fill(0).map(_ => int(80, 200)), ...sentenceProperties.ending.map(f=>f*int(0.8, 1))];
-    console.log(sequence)
     sequence.forEach((freq, i) => {
         setTimeout(() => {
             if (destination) {
@@ -40,7 +39,6 @@ export const speakText = (text, gender, wave, destination) => {
         const type = resolveType(t);
         const delayUntilNext = 100 + (100 * Math.max(t.length, sentenceTypes[type].ending.length+1+sentenceTypes[type].start.length)) * sentenceTypes[type].rate;
         setTimeout(() => {
-            console.log(delayUntilNext, t, gender, wave, type, destination);
             speak(t.length, gender, wave, type, destination);
         }, totalTime);
         totalTime += delayUntilNext;

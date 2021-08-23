@@ -1,6 +1,8 @@
 import { int } from './utils/random-utils';
 import { speakText } from './speech';
 
+let defaultDestination = null;
+
 const downloadSpeech = () => {
     if (!window.audioContext) {
         window.audioContext = new AudioContext();
