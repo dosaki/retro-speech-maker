@@ -49,7 +49,6 @@ RetroSpeech.speakText("Hello there! How are you?", "female", "sawtooth", "calm")
 
 ```javascript
 // main.js
-const { RetroSpeech } = require('./retro-speech.module.min');
 
 // Generate speech with a tone
 RetroSpeech.speak(10, "female", "sawtooth", "calm");
