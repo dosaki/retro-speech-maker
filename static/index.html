@@ -43,8 +43,8 @@
         }
         .box {
             background: #ffffff90;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 6px;
         }
         textarea {
             flex-grow: 1;
@@ -62,10 +62,12 @@
         code {
             display: block;
             padding: 8px;
-            margin: 4px;
+            margin: 4px 0;
             color: #fffff5;
             background: #212326;
             white-space: pre;
+            overflow: auto;
+            width: 100%;
         }
         keyword {
             font-weight: bold;
@@ -86,6 +88,18 @@
         comment {
             color: #266934;
             font-style: italic;
+        }
+
+        @media screen and (max-width: 590px) {
+            code {
+                width: 300px;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            code {
+                width: 280px;
+            }
         }
     </style>
 </head>
@@ -118,14 +132,21 @@
 
                     </div>
                 </div>
-                <div>
-                    Available as a library on <a href="https://github.com/dosaki/retro-speech-maker">github</a> or install it with <a href="https://www.npmjs.com/package/retro-speech-maker">npm</a>
-                    <code>npm install retro-speech-maker</code>
-                    <code><keyword>const</keyword> { <constvar>RetroSpeech</constvar> } = <method>require</method>(<string>'retro-speech-maker'</string>);
+                <div class="flex row">
+                    <div class="flex column">
+                        <p>Available as a library on <a href="https://github.com/dosaki/retro-speech-maker">github</a> or install it with <a href="https://www.npmjs.com/package/retro-speech-maker">npm</a></p>
+
+                        <div class="flex row">
+                            <code>npm install retro-speech-maker</code>
+                        </div>
+                        <div class="flex row">
+                            <code><keyword>const</keyword> { <constvar>RetroSpeech</constvar> } = <method>require</method>(<string>'retro-speech-maker'</string>);
 <comment>// Generate speech with a tone</comment>
 <constvar>RetroSpeech</constvar>.<method>speak</method>(<number>10</number>, <string>"female"</string>, <string>"sawtooth"</string>, <string>"calm"</string>);
 <comment>// or let the sentence itself generate the tone via punctuation</comment>
 <constvar>RetroSpeech</constvar>.<method>speakText</method>(<string>"Hello there! How are you?"</string>, <string>"female"</string>, <string>"sawtooth"</string>);</code>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
