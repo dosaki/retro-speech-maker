@@ -1,5 +1,5 @@
 const { int } = require('./utils/random-utils');
-const { speak } = require('./speech');
+const { speakText } = require('./speech');
 
 const downloadSpeech = () => {
     if (!window.audioContext) {
@@ -31,10 +31,10 @@ const downloadSpeech = () => {
     };
 
     mediaRecorder.start();
-    speak(text.length, gender, wave, destination);
+    const totalTime = speakText(text, gender, wave, destination);
     setTimeout(() => {
         mediaRecorder.stop();
-    }, 100 + text.length * 100);
+    }, totalTime);
 };
 
 
