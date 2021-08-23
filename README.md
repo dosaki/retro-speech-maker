@@ -32,7 +32,7 @@ const { RetroSpeech } = require('retro-speech-maker');
 // Generate speech with a tone
 RetroSpeech.speak(10, "female", "sawtooth", "calm");
 // or let the sentence itself generate the tone via punctuation
-RetroSpeech.speakText("Hello there! How are you?", "female", "sawtooth", "calm");
+RetroSpeech.speakText("Hello there! How are you?", "female", "sawtooth");
 ```
 
 ## As a script library
@@ -53,5 +53,5 @@ RetroSpeech.speakText("Hello there! How are you?", "female", "sawtooth", "calm")
 // Generate speech with a tone
 RetroSpeech.speak(10, "female", "sawtooth", "calm");
 // or let the sentence itself generate the tone via punctuation
-RetroSpeech.speakText("Hello there! How are you?", "female", "sawtooth", "calm");
+RetroSpeech.speakText("Hello there! How are you?", "female", "sawtooth");
 ```
