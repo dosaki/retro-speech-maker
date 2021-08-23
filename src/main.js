@@ -1,5 +1,5 @@
-const { int } = require('./utils/random-utils');
-const { speakText } = require('./speech');
+import { int } from './utils/random-utils';
+import { speakText } from './speech';
 
 const downloadSpeech = () => {
     if (!window.audioContext) {
@@ -48,10 +48,10 @@ const makeBackground = (t) => {
     const now = t || 0;
     if (!last || now - last >= 5 * 1000) {
         last = now;
-        const colour = int(0, parseInt("ffffff", 16)).toString(16)
+        const colour = int(0, parseInt("ffffff", 16)).toString(16);
         document.body.style = `background: #${colour};`;
     }
     window.requestAnimationFrame(makeBackground);
-}
+};
 
 makeBackground();

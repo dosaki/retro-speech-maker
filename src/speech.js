@@ -1,56 +1,49 @@
 import { play } from './utils/audio-utils';
 import { int } from './utils/random-utils';
+import { splitSentences } from './utils/string-utils';
 
 const genderFrequencyMultiplier = {
-    "male": 0.8,
+    "male": 0.85,
     "female": 2.2
 };
 
 const sentenceTypes = {
-    exclamatedQuestion: {ending:[], rate:0.9},
-    question: {ending:[], rate:1},
-    exclamation: {ending:[], rate:0.9},
-    calm: {ending:[], rate:1.2},
-    normal: {ending:[], rate:1}
-}
+    question: { start:[250], ending: [125, 140, 250, 100, 1, 1], rate: 1 },
+    exclamation: { start:[], ending: [125, 150, 175, 1, 1], rate: 0.9 },
+    calm: { start:[], ending: [1, 1], rate: 1.2 },
+    normal: { start:[], ending: [1, 1], rate: 1 }
+};
+
+const resolveType = (text) => {
+    if (text.includes("?")) return "question";
+    if (text.includes("!")) return "exclamation";
+    return "normal";
+};
 
 export const speak = (length, gender, wave, type, destination) => {
     const sentenceProperties = sentenceTypes[type.toLowerCase()] || senteceTypes["normal"];
-    new Array(length).fill(0).map(_ => int(50, 275)).forEach((freq, i) => {
+    const sequence = [...sentenceProperties.start.map(f=>f*int(0.8, 1.3)), ...new Array(Math.max(length - sentenceProperties.ending.length, 0)).fill(0).map(_ => int(80, 200)), ...sentenceProperties.ending.map(f=>f*int(0.8, 1))];
+    console.log(sequence)
+    sequence.forEach((freq, i) => {
         setTimeout(() => {
-            if(destination){
-                play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100*sentenceProperties.rate, 0.1*sentenceProperties.rate, destination);
+            if (destination) {
+                play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100 * sentenceProperties.rate, 0.1 * sentenceProperties.rate, destination);
             }
-            play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100*sentenceProperties.rate, 0.1*sentenceProperties.rate);
+            play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100 * sentenceProperties.rate, 0.1 * sentenceProperties.rate);
         }, 100 * sentenceProperties.rate * i);
     });
 };
-
-const splitKeepSplit = (text, split) => {
-    const splitText = text.split(split);
-    return [...(splitText.slice(0,-1).map(t => `${t}${split}`)), ...splitText.slice(-1)];
-}
-
-const resolveType = (text) => {
-    if(text.includes("?!")) return "exclamatedQuestion";
-    if(text.includes("?")) return "question";
-    if(text.includes("!")) return "exclamation";
-    return "calm";
-}
-
 export const speakText = (text, gender, wave, destination) => {
-    const splitSentences = splitKeepSplit(text, "?!")
-        .map(t => splitKeepSplit(t, "?")).flat()
-        .map(t => splitKeepSplit(t, "!")).flat()
-        .map(t => splitKeepSplit(t, ".")).flat()
-        .map(t => t.trim());
+    const sentences = splitSentences(text);
     let totalTime = 0;
-    splitSentences.forEach((t, i) => {
+    sentences.forEach(t => {
         const type = resolveType(t);
+        const delayUntilNext = 100 + (100 * Math.max(t.length, sentenceTypes[type].ending.length+1+sentenceTypes[type].start.length)) * sentenceTypes[type].rate;
         setTimeout(() => {
+            console.log(delayUntilNext, t, gender, wave, type, destination);
             speak(t.length, gender, wave, type, destination);
-        }, (300 + 100 * type.rate * t.length) * i);
-        totalTime += 300 + 100 * t.length;
+        }, totalTime);
+        totalTime += delayUntilNext;
     });
     return totalTime;
 };

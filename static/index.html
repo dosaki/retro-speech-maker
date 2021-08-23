@@ -83,6 +83,10 @@
         number {
             font-weight: bold;
         }
+        comment {
+            color: #266934;
+            font-style: italic;
+        }
     </style>
 </head>
 
@@ -93,7 +97,7 @@
                 <div>
                     <h1>Retro Speech Generator</h1>
                     <div class="flex row vertical-spacer">
-                        <textarea placeholder="Type some text here" text>Hello there</textarea>
+                        <textarea placeholder="Type some text here" text>Hello there! How are you?</textarea>
                         <div class="flex column horizontal-spacer">
                             <select gender_select>
                                 <option value="female">Female</option>
@@ -118,7 +122,10 @@
                     Available as a library on <a href="https://github.com/dosaki/retro-speech-maker">github</a> or install it with <a href="https://www.npmjs.com/package/retro-speech-maker">npm</a>
                     <code>npm install retro-speech-maker</code>
                     <code><keyword>const</keyword> { <constvar>RetroSpeech</constvar> } = <method>require</method>(<string>'retro-speech-maker'</string>);
-<constvar>RetroSpeech</constvar>.<method>speak</method>(<number>10</number>, <string>"female"</string>, <string>"sawtooth"</string>);</code>
+<comment>// Generate speech with a tone</comment>
+<constvar>RetroSpeech</constvar>.<method>speak</method>(<number>10</number>, <string>"female"</string>, <string>"sawtooth"</string>, <string>"calm"</string>);
+<comment>// or let the sentence itself generate the tone via punctuation</comment>
+<constvar>RetroSpeech</constvar>.<method>speakText</method>(<string>"Hello there! How are you?"</string>, <string>"female"</string>, <string>"sawtooth"</string>);</code>
                 </div>
             </div>
         </div>
