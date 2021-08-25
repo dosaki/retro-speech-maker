@@ -1,6 +1,6 @@
 {
   "name": "retro-speech-maker",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Speech-like sounds to go with your text in your retro game",
   "pkgRoot": "dist",
   "main": "retro-speech.module.min.js",
