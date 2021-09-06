@@ -20,26 +20,26 @@ const resolveType = (text) => {
     return "normal";
 };
 
-export const speak = (length, gender, wave, type, destination) => {
+export const speak = (length, gender, wave, type, volume, destination) => {
     const sentenceProperties = sentenceTypes[type.toLowerCase()] || senteceTypes["normal"];
     const sequence = [...sentenceProperties.start.map(f=>f*int(0.8, 1.3)), ...new Array(Math.max(length - sentenceProperties.ending.length, 0)).fill(0).map(_ => int(80, 200)), ...sentenceProperties.ending.map(f=>f*int(0.8, 1))];
     sequence.forEach((freq, i) => {
         setTimeout(() => {
             if (destination) {
-                play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100 * sentenceProperties.rate, 0.1 * sentenceProperties.rate, destination);
+                play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100 * sentenceProperties.rate, 0.1 * sentenceProperties.rate, volume, destination);
             }
-            play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100 * sentenceProperties.rate, 0.1 * sentenceProperties.rate);
+            play(wave || "sawtooth", freq * genderFrequencyMultiplier[gender || "female"], 100 * sentenceProperties.rate, 0.1 * sentenceProperties.rate, volume);
         }, 100 * sentenceProperties.rate * i);
     });
 };
-export const speakText = (text, gender, wave, destination) => {
+export const speakText = (text, gender, wave, volume, destination) => {
     const sentences = splitSentences(text);
     let totalTime = 0;
     sentences.forEach(t => {
         const type = resolveType(t);
         const delayUntilNext = 100 + (100 * Math.max(t.length, sentenceTypes[type].ending.length+1+sentenceTypes[type].start.length)) * sentenceTypes[type].rate;
         setTimeout(() => {
-            speak(t.length, gender, wave, type, destination);
+            speak(t.length, gender, wave, type, volume, destination);
         }, totalTime);
         totalTime += delayUntilNext;
     });

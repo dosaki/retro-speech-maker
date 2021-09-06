@@ -33,7 +33,7 @@ const downloadSpeech = () => {
     };
 
     mediaRecorder.start();
-    const totalTime = speakText(text, gender, wave, destination);
+    const totalTime = speakText(text, gender, wave, 1, destination);
     setTimeout(() => {
         mediaRecorder.stop();
     }, totalTime);

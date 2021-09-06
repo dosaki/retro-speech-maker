@@ -142,9 +142,9 @@
                         <div class="flex row">
                             <code><keyword>const</keyword> { <constvar>RetroSpeech</constvar> } = <method>require</method>(<string>'retro-speech-maker'</string>);
 <comment>// Generate speech with a tone</comment>
-<constvar>RetroSpeech</constvar>.<method>speak</method>(<number>10</number>, <string>"female"</string>, <string>"sawtooth"</string>, <string>"calm"</string>);
+<constvar>RetroSpeech</constvar>.<method>speak</method>(<number>10</number>, <string>"female"</string>, <string>"sawtooth"</string>, <string>"calm"</string>, <number>0.8</number>);
 <comment>// or let the sentence itself generate the tone via punctuation</comment>
-<constvar>RetroSpeech</constvar>.<method>speakText</method>(<string>"Hello there! How are you?"</string>, <string>"female"</string>, <string>"sawtooth"</string>);</code>
+<constvar>RetroSpeech</constvar>.<method>speakText</method>(<string>"Hello there! How are you?"</string>, <string>"female"</string>, <string>"sawtooth"</string>, <number>1</number>);</code>
                         </div>
                     </div>
                 </div>
