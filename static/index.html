@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="monetization" content="$ilp.uphold.com/WaPUQRJ97L4L">
     <title>Retro Speech Generator</title>
     <style>
         * {
@@ -20,6 +21,10 @@
             overflow: auto;
             position: fixed;
             font-family: monospace;
+        }
+
+        a {
+            font-weight: bold;
         }
 
         .flex {
@@ -38,27 +43,37 @@
         .row {
             flex-direction: row;
         }
+
         .gradient {
-            background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
         }
+
         .box {
             background: #ffffff90;
             padding: 10px;
             border-radius: 6px;
         }
+
         textarea {
             flex-grow: 1;
             height: 100px;
             padding: 4px;
         }
+
         .vertical-spacer {
             margin-top: 8px;
             margin-bottom: 8px;
         }
+
         .horizontal-spacer {
             margin-left: 8px;
             margin-right: 8px;
         }
+
+        .getitnow{
+            font-size: 1.2em;
+        }
+
         code {
             display: block;
             padding: 8px;
@@ -69,22 +84,28 @@
             overflow: auto;
             width: 100%;
         }
+
         keyword {
             font-weight: bold;
             color: #5e77ff;
         }
+
         constvar {
             color: #5e77ff;
         }
+
         string {
             color: #e6960b;
         }
+
         method {
             color: #ffeb87;
         }
+
         number {
             font-weight: bold;
         }
+
         comment {
             color: #266934;
             font-style: italic;
@@ -134,7 +155,9 @@
                 </div>
                 <div class="flex row">
                     <div class="flex column">
-                        <p>Available as a library on <a href="https://github.com/dosaki/retro-speech-maker">github</a> or install it with <a href="https://www.npmjs.com/package/retro-speech-maker">npm</a></p>
+                        <p class="getitnow">Available as a library on <a
+                                href="https://github.com/dosaki/retro-speech-maker">github</a> or install it with <a
+                                href="https://www.npmjs.com/package/retro-speech-maker">npm</a>.</p>
 
                         <div class="flex row">
                             <code>npm install retro-speech-maker</code>
