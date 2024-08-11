@@ -1,6 +1,6 @@
 {
   "name": "retro-speech-maker",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Speech-like sounds to go with your text in your retro game",
   "pkgRoot": "dist",
   "main": "retro-speech.module.min.js",
@@ -18,7 +18,7 @@
     "chai": "^5.1.1",
     "mocha": "^10.7.3",
     "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^5.1.4"
   },
   "repository": {
     "type": "git",

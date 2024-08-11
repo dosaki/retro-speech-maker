@@ -1,10 +1,15 @@
-const path = require('path');
+import {resolve} from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-module.exports = [
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default [
     {
         entry: './src/main.js',
         output: {
-            path: path.resolve(__dirname, 'app', 'js'),
+            path: resolve(__dirname, 'app', 'js'),
             filename: 'main.js'
         },
         devtool: 'source-map'
@@ -12,10 +17,10 @@ module.exports = [
     {
         entry: './src/speech.js',
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: resolve(__dirname, 'dist'),
             filename: 'retro-speech.min.js',
             library: {
-                name:'RetroSpeech',
+                name: 'RetroSpeech',
                 type: 'window'
             }
         },
@@ -24,10 +29,10 @@ module.exports = [
     {
         entry: './src/speech.js',
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: resolve(__dirname, 'dist'),
             filename: 'retro-speech.module.min.js',
             library: {
-                name:'RetroSpeech',
+                name: 'RetroSpeech',
                 type: 'commonjs'
             }
         },

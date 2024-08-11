@@ -59,8 +59,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build website
-        run: ./build.sh --dist
+      - name: Build library & website
+        run: ./build.sh
+
+      - name: NPM Publish
+        uses: JS-DevTools/npm-publish@v3.1.1
+        with:
+          token: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
       - name: Terraform Init
         run: |
