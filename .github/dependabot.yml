@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "./"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "09:00"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "09:00"
+  - package-ecosystem: "terraform"
+    directory: "./terraform"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "09:00"
