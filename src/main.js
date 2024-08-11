@@ -1,5 +1,5 @@
-import { int } from './utils/random-utils';
-import { speakText } from './speech';
+import { int } from './utils/random-utils.js';
+import { speakText } from './speech.js';
 
 let defaultDestination = null;
 

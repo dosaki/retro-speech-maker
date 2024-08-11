@@ -1,6 +1,6 @@
-import { play } from './utils/audio-utils';
-import { int } from './utils/random-utils';
-import { splitSentences } from './utils/string-utils';
+import { play } from './utils/audio-utils.js';
+import { int } from './utils/random-utils.js';
+import { splitSentences } from './utils/string-utils.js';
 
 const genderFrequencyMultiplier = {
     "male": 0.85,
